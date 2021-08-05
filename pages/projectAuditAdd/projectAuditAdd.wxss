@@ -1,0 +1,64 @@
+.patrolShopWrap{}
+
+/* 导航 */
+.nav{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height:97rpx;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #F2F2F2;
+  font-size:28rpx;
+  font-weight:bold;
+  padding:0 20px;
+}
+
+
+.navLi{
+  flex: 1;
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  text-align: center;
+  height:80rpx;
+  line-height: 80rpx;
+}
+
+.active{
+  color: #E1671D;
+}
+.navOne{
+  align-items: center;
+  justify-items: center;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #F2F2F2;
+  font-size:28rpx;
+  font-weight:bold;
+  height:80rpx;
+  line-height:80rpx;
+  padding:0 10px;
+}
+
+
+/* 内容 */
+.main{
+  padding: 16rpx 15rpx 0rpx 11rpx;
+  height:100%;
+}
+.iconBigRed{
+  color:#fff;
+  background: #BF1D47;
+  border-radius: 50%;
+  width:100rpx;
+  height:100rpx;
+  font-size:60rpx;
+  text-align: center;
+  line-height: 90rpx;
+  position: fixed;
+  right:40rpx;
+  bottom:40rpx;
+  box-shadow: 2px 2px 8px #d8d8d8;
+}
+
+.txtHui {
+    color: #8A9199
+}

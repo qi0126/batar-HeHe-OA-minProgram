@@ -1,0 +1,36 @@
+<scroll-view scroll-y style='height:100vh;'>
+  <view class='top'>
+    <!-- <navigator url="/pages/bindPhone/index" class='img'>
+      
+    </navigator> -->
+    <view class="topName">
+       <view class='img'><open-data type="userAvatarUrl"></open-data></view><view class='text'><open-data type="userNickName"></open-data></view>
+       
+    </view>
+    <view class="loginTxt">
+      <view class="loginTxtOne">
+        登录
+      </view>
+    </view>
+  </view>
+  <view class="width90F">
+    <view class="mtop80">
+      <view class="lineBottom">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" value="{{ userName }}" data-type="userName" bindinput="changeInputInfo"   placeholder="请输入账号"  style="width:100%"/>
+        </view>
+      </view>
+    </view>
+    <view class="mtop50">
+      <view class="lineBottom">
+        <view class="weui-cell weui-cell_input">
+          <input class="weui-input" password type="text" data-type="passWord" bindinput="changeInputInfo"  value="{{ passWord }}"  placeholder="请输入密码" style="width:100%"/>
+        </view>
+      </view>
+    </view>
+    <view class="mtop168">
+      <button class="bRed borderRadius40 txt32" bindtap="loginFun" >登 录</button>
+    </view>
+  </view>
+
+</scroll-view>

@@ -1,0 +1,82 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="计划详情"></navigaBar>
+  <view class="titleOne">
+    <span class="titOne">
+      {{detailData.planNum}}
+    </span>
+    <span class="txtYellow floatRight txtYellow" wx:if="{{detailData.status == 1}}">待审核</span>
+    <span class="txtYellow floatRight txtRed" wx:elif="{{detailData.status == 3}}">已驳回</span>
+    <span class="txtYellow floatRight txtYellow" wx:elif="{{detailData.status == 2}}">已审核</span>
+    <span class="txtYellow floatRight" wx:else>--</span>
+  </view>
+  <!-- 驳回原因 -->
+  <view class="reason" wx:if="{{detailData.status == 3}}">驳回原因：{{detailData.loaseCause || '-'}}</view>
+
+  <!-- 内容 -->
+  <view class="main">
+
+      <!-- 待反馈 -->
+      <view>
+        <view class="cardWrap">
+          <view class="displayFlex">
+            <view class="left30">计划类型</view>
+            <view class="right70" wx:if="{{detailData.type == 0}}">
+               安排巡店
+            </view>
+            <view class="right70" wx:elif="{{detailData.type == 1}}">
+               申请巡店
+            </view>
+            <view class="right70" wx:else>--</view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30">主访人</view>
+            <view class="right70">
+              {{detailData.planUserName || '-'}}
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30">陪同人</view>
+            <view class="right70">
+              {{detailData.escortUser.userNames || '-'}}
+            </view>
+          </view>
+          <view class="displayFlex  lineBottom lineHeight34">
+            <view class="left30">巡店内容</view>
+            <view class="right70" style="line-height:90rpx;word-wrap:break-word ;">
+              <view class="contentDiv" wx:if="{{detailData.content.length > 51}}">
+                {{contentTF?detailData.contentD:detailData.content}}
+                <view class="{{contentTF?'contentDivOne':''}}" bindtap="contentTFfun">
+                  <view class="txtRed txtCenter">{{contentTF?'展开更多':'收起'}}</view>
+                </view>
+              </view>
+              <view wx:else>
+                {{detailData.content || '-'}}
+              </view>
+            </view>
+          </view>
+          <view class="lineHeight60">
+            <span class="txtRed txt32 txtBold">
+              总费用￥{{detailData.budget || '-'}}
+            </span>
+            <span class="txtHui txt32 txtBold floatRight">
+              {{detailData.createTime || '-'}}
+            </span>
+          </view>
+          
+        </view>
+
+        <patrolShopCost editTF="false" wx:for="{{detailData.storeList}}" wx:key="item.planId" costData="{{item}}"></patrolShopCost>
+
+        <view style="height:300rpx;" wx:if="{{authType}}">
+         
+           <button class="bottomOne" bindtap="submitProjectFun">审核驳回</button>
+           <button class="bottomTwo" bindtap="saveProjectFun">审核通过</button>
+        </view>
+        <modal wx:if="{{hiddenmodalput}}" title="驳回审核" confirm-text="确定驳回" confirm-color="#BF1D47" cancel-text="取消" cancel-color="#919599" bindcancel="cancel" bindconfirm="confirm"> 
+          <textarea  class="weui-textarea" placeholder="请输入驳回原因800字以内" value="{{contentVal}}" bindblur="textFun" style="height: 520rpx;width:100%;word-wrap: break-word;" />
+        </modal>
+
+      </view>
+  </view>
+
+</view>

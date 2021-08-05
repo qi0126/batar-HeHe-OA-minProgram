@@ -1,0 +1,34 @@
+<view class="cardWrap">
+   <view class="titleWrap">
+        <view class="title">
+          <view class="number">{{costData.storeName || '-'}}</view>
+          <view class="{{editTF === 'true'?'show status':'hide'}}" bindtap="delFun">X</view>
+          <view class="{{editTF === 'false'?'show divRedBottom':'hide'}}">
+           ￥{{costData.totalPrice || "-"}}
+          </view>
+        </view>
+   </view>
+
+   <view class="div28 lineBottom">
+      <view>巡店编号：<span>{{costData.storeNum || "-"}}</span></view>
+      <view>计划时间：<span>{{costData.predictStartTime || "-"}} ~ {{costData.predictEndTime || "-"}}</span></view>
+      <view>计划人数：<span>{{costData.peopleNum || "-"}}人</span></view>
+    </view>
+   <view class="div28">
+      <view class="displayFlex">
+        <view class="left50">住宿费用：<span>￥{{costData.putupPrice || "-"}}</span></view>
+        <view class="left50">餐补加通讯费：<span>￥{{costData.mealPrice || "-"}}</span></view>
+      </view>
+      <view class="displayFlex">
+        <view class="left50">机票费用：<span>￥{{costData.ticketPrice || "-"}}</span></view>
+        <view class="left50">高铁费用：<span>￥{{costData.highSpeedFee || "-"}}</span></view>
+      </view>
+      <view class="displayFlex">
+        <view>其他交通费：<span>￥{{costData.trafficPrice || "-"}}</span></view>
+      </view>
+    </view>
+    <view class="{{editTF === 'true' ?'show divRedBottom':'hide'}}">
+      总费用： ￥{{costData.totalPrice || "-"}}
+    </view>
+    
+</view>

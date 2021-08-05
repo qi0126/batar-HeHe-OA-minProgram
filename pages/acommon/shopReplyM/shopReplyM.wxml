@@ -1,0 +1,29 @@
+<view class="cardWrap">
+
+   <view class="displayFlex ">
+      <view class="left70">
+        <view>{{shopData.storeName || '-'}}</view>
+        <view class="txtYellow">
+          <span wx:if="{{shopData.isStoreStatus === 0}}">未到店</span>
+          <span wx:elif="{{shopData.isStoreStatus === 1}}">
+            <span wx:if="{{shopData.storeStatus === 0}}" class="txtRed">待反馈</span>
+            <span wx:if="{{shopData.storeStatus === 1}}" class="txtRed">待回复</span>
+            <span wx:if="{{shopData.storeStatus === 2}}" class="txtHui">已回复</span>
+          </span>
+        </view>
+        <view class="txt24 txtHui">{{shopData.predictStartTime || '-'}}~{{shopData.predictEndTime || '-'}}</view>
+      </view>
+      <view class="right30">
+<!-- 
+        <button bindtap="newShop" class="bottomSix" wx:if="{{shopData.reportStatus === 0}}">编辑</button>
+        <button bindtap="editShop" class="bottomSix" wx:if="{{shopData.reportStatus === 1}}">报告</button> -->
+        <button bindtap="viewShop" class="bottomFive" wx:if="{{shopData.isStoreStatus === 1}}">查看</button>
+        <span wx:elif="{{shopData.isStoreStatus === 0}}">
+          <button bindtap="viewShop" class="bottomFive" wx:if="{{shopData.storeStatus === 0}}">查看</button>
+          <button bindtap="editShop" class="bottomSix" wx:if="{{shopData.storeStatus === 1}}">回复</button>
+          <button bindtap="viewShop" class="bottomFive" wx:if="{{shopData.storeStatus === 2}}">查看</button>
+        </span>
+      </view>
+    </view>
+
+</view>

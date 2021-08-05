@@ -1,0 +1,72 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="管理系统"></navigaBar>
+  <view class="nav">
+    <view class="navLi">计划类型</view>
+    <view class="navLi ">
+      <image src='/images/checkEd.png' class="img28"></image>
+      <span>安排巡店</span>
+    </view>
+    <view class="navLi txtHui">
+      <image src='/images/checkNo.png' class="img28"></image>
+      <span>申请巡店</span>
+    </view>
+
+  </view>
+
+  <!-- 内容 -->
+  <view class="main">
+
+      <!-- 待反馈 -->
+      <view>
+        <view class="cardWrap">
+          <view class="displayFlex lineBottom">
+            <view class="left30One">主访人</view>
+            <view class="right70One">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <text>{{casArray[casIndex]}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">陪同人</view>
+            <view class="right70One">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <text>{{casArray[casIndex]}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">联系方式</view>
+            <view class="right70One">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <text>{{casArray[casIndex]}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">巡店内容</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入巡店具体内容1000字内" />
+            </view>
+          </view>
+          
+        </view>
+
+        <patrolShopCost></patrolShopCost>
+        <view class="navOne txtRed">
+          <span >新增预算</span>
+          <span class="floatRight right20">></span>
+        </view>
+        <view class="mtop64">
+          <button class="bRed borderRadius40 txt32">提交申请</button>
+        </view>
+      </view>
+  </view>
+
+</view>

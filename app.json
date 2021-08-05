@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/shopReplyList/shopReplyList",
+    "pages/shopReplyDetails/shopReplyDetails",
+    "pages/shopReplyView/shopReplyView",    
+    "pages/user/index",
+    "pages/userInfo/userInfo",
+    "pages/shopApply/shopApply",
+    "pages/shopApplyAdd/shopApplyAdd",
+    "pages/projectManage/projectManage",
+    "pages/shopApplyEdit/shopApplyEdit",
+    "pages/projectAuditManage/projectAuditManage",
+    "pages/projectAuditDetails/projectAuditDetails",
+    "pages/shopReportList/shopReportList",
+    "pages/shopReportEdit/shopReportEdit",
+    "pages/shopCostAdd/shopCostAdd",
+    "pages/shopReportView/shopReportView",
+    "pages/shopReportApply/shopReportApply",
+    "pages/shopReportDetails/shopReportDetails",
+    "pages/patrolShop/patrolShop",
+    "pages/projectDetails/projectDetails",
+    "pages/projectAudit/projectAudit",
+    "pages/projectAuditApply/projectAuditApply",
+    "pages/projectAuditAdd/projectAuditAdd"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#333",
+    "selectedColor": "#9e0029",
+    "list": [
+      {
+        "selectedIconPath": "images/wordIcon.png",
+        "iconPath": "images/wordIconS.png",
+        "pagePath": "pages/index/index",
+        "text": "工作台"
+      },
+      {
+        "selectedIconPath": "images/myIcon.png",
+        "iconPath": "images/myIconS.png",
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

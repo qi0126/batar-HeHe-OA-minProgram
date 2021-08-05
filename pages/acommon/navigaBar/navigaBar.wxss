@@ -1,0 +1,22 @@
+.cardWrap{
+  background: #fff;
+  font-family:PingFangSC-Regular,PingFang SC;
+  height:90rpx;
+  line-height: 132rpx;
+  text-align: center;
+  display: flex;
+  /* box-shadow: 2px 2px 8px #d8d8d8; */
+}
+.cardWrap image{
+  width:18rpx;
+  height:36rpx;
+}
+.barTxtLeft{
+  width:30rpx;
+  margin-left:20rpx;
+}
+.barTxtRight{
+  width:80%;
+  text-align: center;
+  font-size:34rpx;
+}

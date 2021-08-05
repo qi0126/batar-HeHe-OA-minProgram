@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<navigaBar navBarTxt="和合百泰" test="login"></navigaBar>
+<scroll-view class="container" scroll-y  bindscrolltolower="lower">
+  <view class="top">
+    <view class="topTxtOne">您好，{{userName}}</view>
+    <view class="topTxtTwo">{{dayNow.time || "-"}}</view>
+    <view class="topTxtThree">{{dayNow.week || '-'}}</view>
+  </view>
+  <view class="shopCenter">巡店管理</view>
+  <view class='icon'>
+    <navigator hover-class="none" url="/pages/shopApply/shopApply">
+      <image src='/images/projectApply.png' mode="aspectFit"></image>
+      <text>计划申请</text>
+    </navigator>
+    <navigator hover-class="none" url="/pages/projectManage/projectManage">
+      <image src='/images/projectManage.png' mode="aspectFit"></image>
+      <text>计划管理</text>
+    </navigator>
+    <navigator hover-class="none" url="/pages/shopReportList/shopReportList">
+      <image src='/images/shopProject.png' mode="aspectFit"></image>
+      <text>巡店报告</text>
+    </navigator>
+  </view>
+  <view class='icon'>
+    <navigator hover-class="none" url="/pages/projectAuditManage/projectAuditManage">
+      <view style="height:99rpx;"><image src='/images/shopAudit.png' mode="aspectFit"></image></view>
+      <text>巡店审核</text>
+    </navigator>
+    <navigator hover-class="none" url="/pages/shopReplyList/shopReplyList">
+      <image src='/images/replyIcon.png' mode="aspectFit"></image>
+      <text>反馈回复</text>
+    </navigator>
+    <navigator hover-class="none">
+      
+    </navigator>
+  </view>
+</scroll-view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "和合内部管理系统",
+  "usingComponents": {
+    "navigaBar": "/pages/acommon/navigaBar/navigaBar"
+  }
+}

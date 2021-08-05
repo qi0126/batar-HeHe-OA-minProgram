@@ -1,0 +1,32 @@
+<view class="cardWrap">
+   <view class="titleWrap">
+        <view class="title">
+          <view class="number">{{reportData.planNum || '-'}}</view>
+          <view class="status">
+            <span wx:if="{{reportData.reportStatus == 0}}">待报告</span>
+            <span wx:if="{{reportData.reportStatus == 1}}" class="txtHui">已报告</span>
+            <!-- <span wx:if="{{reportData.reportStatus == 2}}">已报告</span> -->
+          </view>
+        </view>
+   </view>
+
+   <view class="displayFlex ">
+      <view class="left30">计划类型</view>
+      <view class="right70">
+        <span wx:if="{{reportData.type == 0}}">安排巡店</span>
+        <span wx:if="{{reportData.type == 1}}">申请巡店</span>
+      </view>
+    </view>
+   <view class="displayFlex">
+      <view class="left30">主访人</view>
+      <view class="right70">
+        {{reportData.planUserName || '-'}}
+      </view>
+    </view>
+   <view class="displayFlex">
+      <view class="left30">陪同人</view>
+      <view class="right70">
+        {{reportData.escortUserD.userNames || '-'}}
+      </view>
+    </view>
+</view>

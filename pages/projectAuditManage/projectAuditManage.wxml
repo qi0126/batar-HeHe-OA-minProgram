@@ -1,0 +1,27 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="巡店审核" test="index"></navigaBar>
+  <view class="nav">
+      <view class="navLi lineRightHui {{activeIndex == 1?'active':''}}" data-index="1" bindtap="tasFun">
+          <span>待审核</span>
+      </view>
+      <view class="navLi lineRightHui {{activeIndex == 3?'active':''}}" data-index="3" bindtap="tasFun">
+          <span>已驳回</span></view>
+      <view class="navLi {{activeIndex == 2?'active':''}}" data-index="2" bindtap="tasFun">
+          <span>已审核</span>
+      </view>
+  </view>
+
+  <!-- 内容 -->
+  <view class="main">
+      <!-- 待反馈 -->
+      <view>
+        <shopProject bind:goDetail="goDetail" wx:for="{{planData}}" wx:key="item.id" liData="{{item}}"></shopProject>
+        <!-- <shopProject catchtap="goDetail"></shopProject> -->
+      </view>
+      <view wx:if="{{!planData || planData.length === 0}}" class="txtCenter" >
+        <image src="../../images/noOrderDisp.png" style="width:570rpx;height:570rpx;"></image>
+      </view>
+
+  </view>
+
+</view>

@@ -1,0 +1,107 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="新增预算"></navigaBar>
+  <!-- 内容 -->
+  <view class="main">
+
+      <!-- 待反馈 -->
+      <view>
+        <view class="cardWrap">
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>客户名称</view>
+            <view class="right70One" bindtap="modalTap" data-txt="客户">
+              <span>{{userName.txt}}</span>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>计划时间</view>
+            <!-- <view class="right70One" bindtap="modalTapDate"> -->
+            <view class="right70One" bindtap="modalTapDate">
+              <span style="line-height:40rpx;">{{predictStartTime}}</span>~
+              <span style="line-height:40rpx;">{{predictEndTime}}</span>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>计划人数</view>
+            <view class="right70One">
+              <input class="weui-input" type="number" maxlength="99" placeholder="请输入巡店人数" value="{{peopleNum}}"  bindinput="numChange" data-txt="peopleNum"/>
+            </view>
+          </view>
+          
+        </view>
+
+        <view class="cardWrap">
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>住宿费用</view>
+            <view class="right70One">
+              <input class="weui-input" type="digit" maxlength="99" placeholder="请输入住宿费用"  value="{{liveNum}}"  bindinput="numChange" data-txt="liveNum"/>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>餐补加通讯费</view>
+            <view class="right70One">
+              <input class="weui-input" type="digit" maxlength="99"  placeholder="请输入餐补加交通费用"  value="{{footNum}}"  bindinput="numChange" data-txt="footNum"/>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">机票费用</view>
+            <view class="right70One">
+              <input class="weui-input" type="digit" maxlength="99" placeholder="请输入机票费用"  value="{{airNum}}"  bindinput="numChange" data-txt="airNum"/>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">高铁费用</view>
+            <view class="right70One">
+              <input class="weui-input" type="digit" maxlength="99" placeholder="请输入高铁费用"  value="{{hRailNum}}"  bindinput="numChange" data-txt="hRailNum"/>
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30One">其他交通费用</view>
+            <view class="right70One">
+              <input class="weui-input" type="digit" maxlength="99" placeholder="请输入其他交通费用"  value="{{otherNum}}"  bindinput="numChange" data-txt="otherNum"/>
+            </view>
+          </view>
+
+        </view>
+        <view class="mtop64">
+          <button class="bRed borderRadius40 txt32" bindtap="conFirmBig">确定</button>
+        </view>
+      </view>
+  </view>
+
+  <!-- 弹窗一用户 -->
+  <modal wx:if="{{userModalTF}}" title="{{modalTxtOne}}" confirm-text="确认" bindcancel="cancelM" bindconfirm="confirmM">
+    <view class="modeTwo">
+      <input class="weui-input" maxlength="99" placeholder="客户名称、编码、所属区域" bindinput="search" />
+      <view class="userDivOne lineTop displayFlex" data-item="item">
+        <span class="{{item.checked?'native':''}} width400 txtBlack txtBold">客户名称</span>
+        <span class="{{item.checked?'native':''}} width150 txtBlack txtBold">客户编码</span>
+        <span class="{{item.checked?'native':''}} width150 txtBlack txtBold">所属区域</span>
+      </view>
+      <view class="userDivOne lineTop displayFlex" data-item="item" wx:for="{{userList}}" data-ind="{{index}}" bindtap="checkUserList" wx:key="item.companyId">
+              <span class="width50"><image src="{{item.checked?'/images/checkEd.png':'/images/checkNo.png'}}" class="checkEd"></image></span>
+
+        <span class="{{item.checked?'native':''}} width400">{{item.companyName.length > 9 ? item.companyNameS:item.companyName}}</span>
+        <span class="{{item.checked?'native':''}} width150">{{item.companyId}}</span>
+        <span class="{{item.checked?'native':''}} width150">{{item.area.length > 4 ? item.areaS:item.area}}</span>
+      </view>
+    </view>
+   </modal>
+     <!-- 弹窗一内容 -->
+    <modal wx:if="{{modalTFTwo}}" title="请填写巡店内容" confirm-text="确认" bindcancel="cancelMTwo" bindconfirm="confirmMTwo">
+      <textarea placeholder="{{modelInputPhol}}" auto-focus style="height: 15em;width:100%;word-wrap: break-word;" maxlength="799"/>
+      <view class="txtHui txt28 txtRight">最多限制800个字</view>
+    </modal>
+    <!-- 弹窗一时间选择 -->
+    <modal wx:if="{{modalTFDate}}" title="选择预定巡店时间" confirm-text="确认" bindcancel="cancelMDate" bindconfirm="confirmMDate">
+      <view class="displayFlex">
+        <picker mode="date" value="{{predictStartTime}}" data-dateTxt="predictStartTime" start="{{currentTime}}" bindchange="bindDateChange" style="width:200rpx;">
+          <view>{{predictStartTime}}</view>
+        </picker>
+              至
+        <picker mode="date" value="{{predictEndTime}}" data-dateTxt="predictEndTime" start="{{currentTime}}" bindchange="bindDateChange" style="width:200rpx;margin-left:20rpx">
+          <view>{{predictEndTime}}</view>
+        </picker>
+      </view>
+    </modal>
+
+</view>

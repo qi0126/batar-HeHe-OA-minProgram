@@ -1,0 +1,203 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="巡店回复"></navigaBar>
+  <!-- 未到店 -->
+  <view wx:if="{{shopReportData.status == 3}}" class="noShopReason">
+    <view class="txt36 txtBold">{{shopReportData.storeName}}</view>
+    <view class="displayFlex">
+      <view class="left30">主访人</view>
+      <view class="right70">
+        {{shopReportData.planUserName || '-'}}
+      </view>
+    </view>
+    <view class="displayFlex">
+      <view class="left30">陪同人</view>
+      <view class="right70">
+        {{shopReportData.escortUser || '-'}}
+      </view>
+    </view>
+    <view class="left30">未到店原因</view>
+    <view class="reasonCont">{{shopReportData.noStoreCause}}</view>
+  </view>
+  <!-- 其他状态 -->
+  <view  wx:else>
+    <view class="shopReportTopOne">
+      <view class="txt36 txtBold">{{shopReportData.storeName}}</view>
+      <view class="displayFlex">
+        <view class="left30">主访人</view>
+        <view class="right70">
+          {{shopReportData.planUserName || '-'}}
+        </view>
+      </view>
+      <view class="displayFlex">
+        <view class="left30">陪同人</view>
+        <view class="right70">
+          {{shopReportData.escortUser || '-'}}
+        </view>
+      </view>
+      <view class="displayFlex">
+        <view class="left30">巡店时间</view>
+        <view class="right70" bindtap="modalTap">
+          <span wx:if="{{shopReportData.startTime}}">
+            {{shopReportData.startTime}}~{{shopReportData.endTime}}
+          </span>
+          <span wx:if="{{!shopReportData.startTime}}">
+            -
+          </span>
+        </view>
+      </view>
+      <view class="displayFlex">
+        <view class="left30">联系方式</view>
+        <view class="right70">
+          <span>{{shopReportData.phone || '-'}}</span>
+        </view>
+      </view>
+      <view class="displayFlex">
+        <view class="left30">巡店编号</view>
+        <view class="right70">
+          <span>
+            {{shopReportData.storeNum || '-'}}
+          </span>
+        </view>
+      </view>
+      <view class="displayFlex">
+        <view class="left30">状态</view>
+        <view class="right70">
+
+          <span wx:if="{{shopReportData.status === 0}}" class="txtRed">待反馈</span>
+          <span wx:if="{{shopReportData.status === 1}}" class="txtRed">待回复</span>
+          <span wx:if="{{shopReportData.status === 2}}" class="txtHui">已回复</span>
+          <span wx:if="{{shopReportData.status === 3}}" class="txtYellow">未到店</span>
+        </view>
+      </view>
+      
+      <view class="txtRight txtOrange txt28" catchtap="viewReportFun">
+        查看巡店报告 > 
+      </view>
+    </view>
+    
+    <!-- 巡店反馈内容 -->
+    <view wx:if="{{shopReportData.status == 1 || shopReportData.status == 2}}">
+        <view class="titleOne">
+            <span class="titOne">
+              巡店反馈内容
+            </span>
+        </view>
+        <view class="shopReportTopOne">
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="right70">
+                  服务人员态度
+                </view>
+                <view class="left30One txtRight">
+                  <image src="/images/starRed.png" class="starIcon"  wx:for="{{shopReportData.shopPlanFeedback.serviceStaffSatisfaction}}" data-num='{{index}}'></image>
+                </view>
+
+              </view>
+            </view>
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="right70">
+                  服务人员专业度
+                </view>
+                <view class="left30One txtRight">
+                  <image src="/images/starRed.png" class="starIcon"  wx:for="{{shopReportData.shopPlanFeedback.serviceStaffMajor}}" data-num='{{index}}'></image>
+                </view>
+
+              </view>
+            </view>
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="right70">
+                  服务内容匹配度
+                </view>
+                <view class="left30One txtRight">
+                  <image src="/images/starRed.png" class="starIcon"  wx:for="{{shopReportData.shopPlanFeedback.serviceContentSuited}}" data-num='{{index}}'></image>
+                </view>
+
+              </view>
+            </view>
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="right70">
+                  期待下次同一老师到店
+                </view>
+                <view class="left30One txtRight">
+                  <image src="/images/starRed.png" class="starIcon"  wx:for="{{shopReportData.shopPlanFeedback.hopefulNext}}" data-num='{{index}}'></image>
+                </view>
+
+              </view>
+            </view>
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="right70">
+                  巡店天数
+                </view>
+                <view class="left30 txtRight">
+                  {{shopReportData.shopPlanFeedback.timeNum || '-'}} 天
+                </view>
+              </view>
+            </view>
+
+            <!-- 其他建议 -->
+            <view class="lineBottom">
+              <view class="displayFlex">
+                <view class="left30One">
+                  其他建议
+                </view>
+                <view class="right70One" >
+                  <view class="contentDiv" wx:if="{{evaluate.length > 17}}">
+                    {{contentTF?evaluateD:evaluate}}
+                    <view bindtap="contentTFfun">
+                      <view class="txtRed txtCenter">{{contentTF?'展开更多':'收起'}}</view>
+                    </view>
+                  </view>
+                  <view wx:else>
+                    {{evaluate}}
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <!-- 回复 -->
+            <view wx:if="{{shopReportData.status == 2}}">
+              <view class="displayFlex">
+                <view class="left30One">
+                  回复
+                </view>
+                <view class="right70One" >
+                  <view class="contentDiv" wx:if="{{allFeedBackContnt.length > 17}}">
+                    {{recoveryShow?ellFeedBackContnt:allFeedBackContnt}}
+                    <view bindtap="replyDesFun">
+                      <view class="txtRed txtCenter">{{recoveryShow?'展开更多':'收起'}}</view>
+                    </view>
+                  </view>
+                  <view wx:else>
+                    {{allFeedBackContnt}}
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </view> 
+        </view>
+        <view wx:if="{{shopReportData.status == 1}}">
+          <button bindtap="replyFun" class="replyBtn">回复</button>
+        </view>
+
+
+
+    </view>
+
+  <!-- 弹窗一图片预览 -->
+  <modal wx:if="{{imgModalTF}}" title="图片预览" confirm-text="确认" bindcancel="cancelM" bindconfirm="confirmImg">
+    <view class="modeTwo">
+      <image src="{{imgModalUrl}}"/>
+    </view>
+   </modal>
+  <!-- 弹窗一回复内容 -->
+  <modal wx:if="{{modalTFReply}}" title="请填写回复内容" confirm-text="确定回复" bindcancel="cancelMReply" bindconfirm="confirmMReply">
+    <textarea placeholder="请输入巡店回复具体内容800字内" auto-focus style="height: 15em;width:100%;word-wrap: break-word;" maxlength="799" value="{{replyTxt}}" 
+    data-txt="replyTxt" bindinput="changeInput"/>
+    <view class="txtHui txt28 txtRight">最多限制800个字</view>
+  </modal>
+</view>

@@ -1,0 +1,109 @@
+<scroll-view scroll-y style='height:100vh;'>
+  <navigaBar navBarTxt="账户信息"></navigaBar>
+  <!-- <view class='top'>
+    <view>
+      <view class='img'>
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class='text'>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+  </view> -->
+
+  <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        我的姓名
+      </view>
+      <view class="right70 txtRight">
+        {{userInfo.concat || '-'}}
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        我的账号
+      </view>
+      <view class="right70 txtRight">
+        {{userInfo.username || '-'}}
+      </view>
+    </view>
+  </view>
+  <view class='item' bindtap="passwordTF">
+    <view class='left'>
+      <view class="left30">
+        修改密码
+      </view>
+      <view class="right70">
+
+      </view>
+    </view>
+    <view class='right txt28 txtHui'>
+      修改
+      <image src='/images/my_order.png'></image>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        手机号码
+      </view>
+      <view class="right70 txtRight">
+        {{userInfo.telephone || '-'}}
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        邮箱地址
+      </view>
+      <view class="right70 txtRight">
+        {{userInfo.mail || '-'}}
+      </view>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        员工角色
+      </view>
+      <view class="right70 txtRight">
+        {{userInfo.roleName}}
+      </view>
+    </view>
+  </view>
+  <!-- <view class='item'>
+    <view class='left'>
+      <view class="left30">
+        所属部门
+      </view>
+      <view class="right70 txtRight">
+        -
+      </view>
+    </view>
+  </view> -->
+  <!-- 弹窗一内容 -->
+  <modal wx:if="{{modalTFTwo}}" title="重置密码" confirm-text="确认" bindcancel="cancelMTwo" bindconfirm="confirmMTwo">
+    <view class="displayFlex lineBottom">
+      <view class="left30One">原密码</view>
+      <view class="right70One">
+        <input class="weui-input" maxlength="99" password type="text" placeholder="请输入原密码" value="{{oldPassword}}" bindinput="numChange" data-txt="oldPassword" />
+      </view>
+    </view>
+    <view class="displayFlex lineBottom">
+      <view class="left30One">新密码</view>
+      <view class="right70One">
+        <input class="weui-input" maxlength="99" password type="text" placeholder="请输入新密码" value="{{password}}" bindinput="numChange" data-txt="password" />
+      </view>
+    </view>
+    <view class="displayFlex">
+      <view class="left30One">再次确认</view>
+      <view class="right70One">
+        <input class="weui-input" maxlength="99" password type="text" placeholder="再次输入新密码" value="{{passwordAgain}}" bindinput="numChange" data-txt="passwordAgain" />
+      </view>
+    </view>
+  </modal>
+</scroll-view>

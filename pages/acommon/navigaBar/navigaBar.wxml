@@ -1,0 +1,11 @@
+<view class="cardWrap">
+  <view class="barTxtLeft"  wx:if="{{editTF != 'true'}}" bindtap="goback">
+    <image src="../../../images/returnIcon.png"></image>
+  </view>
+  <view class="barTxtLeft" wx:if="{{editTF === 'true'}}" bindtap="exitFun">
+    <image src="../../../images/returnIcon.png"></image>
+  </view>
+  <view class="barTxtRight">
+    {{navBarTxt}}
+  </view>
+</view>

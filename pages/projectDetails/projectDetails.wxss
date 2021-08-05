@@ -1,0 +1,136 @@
+.patrolShopWrap{}
+
+.colorBlack{
+  color: #242526;
+}
+
+.colorRed{
+  color: #FF2A4D;
+}
+
+/* 导航 */
+.nav{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height:97rpx;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #F2F2F2;
+  font-size:28rpx;
+  font-weight:bold;
+  padding:0 20px;
+}
+
+
+.navLi{
+  flex: 1;
+  font-size:28rpx;
+  color:rgba(51,51,51,1);
+  text-align: center;
+  height:80rpx;
+  line-height: 80rpx;
+}
+
+.active{
+  color: #E1671D;
+}
+.navOne{
+  align-items: center;
+  justify-items: center;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #F2F2F2;
+  font-size:28rpx;
+  font-weight:bold;
+  height:80rpx;
+  line-height:80rpx;
+  padding:0 10px;
+}
+.titleOne{
+  font-size:28rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  padding:0 20rpx;
+  font-weight:bold;
+}
+.titOne{
+  border-left:6rpx solid #BF1D47;
+  padding-left:20rpx;
+}
+
+/* 内容 */
+.main{
+  padding: 16rpx 15rpx 0rpx 11rpx;
+  height:100%;
+}
+.iconBigRed{
+  color:#fff;
+  background: #BF1D47;
+  border-radius: 50%;
+  width:100rpx;
+  height:100rpx;
+  font-size:60rpx;
+  text-align: center;
+  line-height: 90rpx;
+  position: fixed;
+  right:40rpx;
+  bottom:40rpx;
+  box-shadow: 2px 2px 8px #d8d8d8;
+}
+
+.txtHui {
+    color: #8A9199
+}
+
+.lastWrap{
+  padding-bottom: 28rpx;
+  align-items: baseline;
+}
+
+
+.rightCont{
+  line-height:40rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 164rpx;
+  /* width: 208rpx; */
+ 
+  overflow: hidden;
+
+}
+
+
+
+.openClass{
+  color: #BF1D47;
+  height: 164rpx;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background:linear-gradient(180deg,rgba(255,255,255,0.84) 0%,rgba(255,255,255,1) 100%);
+}
+
+.contentDiv{
+  position: relative;
+  line-height: 40rpx;
+  margin-top: 25rpx;
+}
+.contentDivOne{
+  position: absolute;
+  bottom:0;
+  height:125rpx;
+  background:linear-gradient(180deg,rgba(255,255,255,0.84) 0%,rgba(255,255,255,1) 100%);
+  opacity:1;
+  width:100%;
+  text-align: center;
+}
+.contentDivOne view{
+  position: absolute;
+  width:100%;
+  bottom:26rpx;
+}

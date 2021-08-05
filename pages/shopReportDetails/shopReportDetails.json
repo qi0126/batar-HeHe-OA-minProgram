@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "计划详情",
+  "usingComponents": {
+    "patrolShopCost": "/pages/acommon/patrolShop-cost/patrolShop-cost",
+    "navigaBar": "/pages/acommon/navigaBar/navigaBar",
+    "shopReportM": "/pages/acommon/shopReportM/shopReportM"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "巡店计划申请",
+  "usingComponents": {
+    "patrolShopCard": "/pages/acommon/patrolShop-card/patrolShop-card",
+    "patrolShopFeedback": "/pages/acommon/patrolShop-feedback/patrolShop-feedback",
+    "patrolShopReply": "/pages/acommon/patrolShop-reply/patrolShop-reply",
+    "patrolShopAssess": "/pages/acommon/patrolShop-assess/patrolShop-assess",
+    "patrolShopCost": "/pages/acommon/patrolShop-cost/patrolShop-cost",
+    "navigaBar": "/pages/acommon/navigaBar/navigaBar"
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "巡店审核",
+    "usingComponents": {
+        "shopProject": "/pages/acommon/shopProject/shopProject",
+        "navigaBar": "/pages/acommon/navigaBar/navigaBar"
+    }
+}

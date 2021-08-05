@@ -1,0 +1,71 @@
+<view class="feedbackWrap">
+  <view class="feedbackTitleWrap">
+      <view class="feedbackTitle">反馈详情</view>
+  </view>
+
+  <!-- 评价 -->
+  <view class="assessWrap">
+      <view class="assess">
+          <view class="assessLi">
+              <view class="left">服务人员态度</view>
+              <view class="right">
+                  <text class="font_family icon-star_full star real"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+              </view>
+          </view>
+
+          <view class="assessLi">
+              <view class="left">服务人员专业度</view>
+              <view class="right">
+                  <text class="font_family icon-star_full star real"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+              </view>
+          </view>
+
+          <view class="assessLi">
+              <view class="left">服务内容匹配度</view>
+              <view class="right">
+                  <text class="font_family icon-star_full star real"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+              </view>
+          </view>
+
+          <view class="assessLi">
+              <view class="left">期待下次同一老师到店</view>
+              <view class="right">
+                  <text class="font_family icon-star_full star real"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+                  <text class="font_family icon-changyongtubiao-xianxingdaochu-zhuanqu- star"></text>
+              </view>
+          </view>
+      </view>
+  </view>
+
+  <!-- 天数 -->
+  <view class="dayWrap">
+     <view class="day">
+          <view class="dayLeft">巡店天数</view>
+          <view class="dayRight">3 天</view>
+     </view>
+  </view>
+
+  <!-- 巡店建议 -->
+  <view class="proposalWrap">
+      <view class="proposalWrapTitle">巡店建议</view>
+      <view class="proposalWrapDes">
+          用户进行特定动作与小程序客服互动时，小程序客服可以向客户发送文本或图片类型的客服消息。不同的动作触发后，允许下发消息条数和下发时限不同。下发条数达到上限后，会返回错误码。
+      </view>
+  
+  </view>
+</view>

@@ -1,0 +1,75 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="管理系统"></navigaBar>
+  <!-- 内容 -->
+  <view class="main">
+
+      <!-- 待反馈 -->
+      <view>
+        <view class="cardWrap">
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>客户名称</view>
+            <view class="right70One">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <text>{{casArray[casIndex]}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30One"><span class="txtRed">*</span>巡店时间</view>
+            <view class="right70One">
+              <picker bindchange="bindCasPickerChange" value="{{casIndex1}}" range="{{casArray}}">
+                <view>
+                  <text>{{casArray[casIndex]}}</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One">巡店内容</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入巡店人数" />
+            </view>
+          </view>
+        </view>
+        <view class="cardWrap">
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>住宿费用</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入住宿费用" />
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>餐补加通讯费</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入餐补加交通费用" />
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>机票费用</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入机票费用" />
+            </view>
+          </view>
+          <view class="displayFlex lineBottom">
+            <view class="left30One"><span class="txtRed">*</span>高铁费用</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入高铁费用" />
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30One"><span class="txtRed">*</span>其他交通费用</view>
+            <view class="right70One">
+              <input class="weui-input" maxlength="999" placeholder="请输入其他交通费用" />
+            </view>
+          </view>
+
+        </view>
+        <view class="mtop64">
+          <button class="bRed borderRadius40 txt32">确定</button>
+        </view>
+      </view>
+  </view>
+
+</view>

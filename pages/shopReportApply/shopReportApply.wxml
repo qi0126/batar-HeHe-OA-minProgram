@@ -1,0 +1,351 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="填写报告"></navigaBar>
+  <view class="editShopTop txt36" wx:if="{{newReportData.storeName}}">
+    {{newReportData.storeName}}
+  </view>
+  <view class="editShopTop" wx:if="{{storeId.length === 0}}">
+      <view class="left30One">客户名称</view>
+      <view class="right70 txtRight" bindtap="modalTapUser"  data-txt="客户名称">
+        {{userObj.txt || '请选择客户名称'}}
+      </view>
+  </view>
+  <view class="editShopTop displayFlex" wx:if="{{storeId.length > 0}}">
+    <view class="left30One">是否到店</view>
+    <view class="right70One txtRight">
+      <span>{{shopTF?"是":"否"}}</span>
+      <switch checked="{{isTF}}" bindchange="changeShopTF" color="#9e0029"/>
+    </view>
+  </view>
+  <view wx:if="{{shopTF}}">
+    <view class="shopReportTopOne">
+      <view class="displayFlex lineBottom">
+        <view class="left30One">主访人</view>
+        <view class="right70 txtRight">
+          {{newReportData.userName}}
+        </view>
+      </view>
+      <view class="displayFlex {{!userTwoObj.txt?'lineBottom':''}}">
+        <view class="left30One">陪同人</view>
+        <view class="right70 txtRight" bindtap="modalTap" data-txt="陪同人">
+          <span wx:if="{{!userTwoObj.txt}}">请选择陪同人员（选填）</span>
+          <image src='/images/rightA.png' class="imgOne"></image>
+        </view>
+      </view>
+      <view wx:if="{{userTwoObj.txt}}" class="itemTwo" bindtap="modalTap" data-txt="陪同人">
+        {{userTwoObj.txt}}
+      </view>
+      <view class="displayFlex">
+        <view class="left30One">巡店时间</view>
+        <view class="right70 txtRight" bindtap="modalTapDate">
+          <!-- {{storeStartTime}}~{{storeEndTime}} -->
+          <span style="line-height:40rpx;">{{storeStartTime || "开始时间"}}</span>~
+          <span style="line-height:40rpx;">{{storeEndTime || "结束时间"}}</span>
+          <image src='/images/rightA.png' class="imgOne"></image>
+        </view>
+      </view>
+    </view>
+    <view wx:for="{{reportDataList}}" wx:for-item="item" wx:for-index="indM">
+      <view class="titleOne" wx:if="{{item.datalist.length > 0}}">
+        <span class="titOne">
+          {{item.name}}
+          <span class="txtYellow">({{item.score}}/{{item.fullMark}})</span>
+        </span>
+        <span class="titTwo" wx:if="{{item.isButton === 1}}" data-item="{{item}}" data-ind="{{indM}}" bindtap="openProm">
+          编辑
+          <image src='/images/rightARed.png' class="imgOne"/>
+        </span>
+      </view>
+      <view wx:if="{{item.isButton === 1}}">
+        <view class="div16" wx:if="{{item.promSList.length === 0}}"></view>
+        <view class="shopReportTopOne" wx:if="{{item.promSList.length > 0}}">
+          <view wx:for="{{item.promSList}}" wx:for-item="ielem" class="{{(indOne != item.promSList.length-1)?'lineBottom':''}}" wx:for-index="indOne">
+            <view class="displayFlex">
+              <view class="right70">
+                <span wx:if="{{ielem.content.length <= 15}}">{{ielem.contentD}}</span>
+                <span wx:if="{{ielem.content.length > 15}}">
+                  <view data-txt="{{ielem.content}}" catchtap="toast1Tap">
+                    {{ielem.contentD}}...<span class="txtRed txtBold">更多</span>
+                  </view>
+                </span>
+              </view>
+              <view class="left30One txtRight txtRed pRight20">
+                <image src="/images/starRed.png" class="starIcon"  wx:for="{{ielem.result}}" ></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{item.isButton === 0}}">
+        <view class="shopReportTopOne" wx:if="{{item.datalist.length > 0}}">
+          <view wx:for="{{item.datalist}}" wx:for-item="ielem" class="lineBottom" wx:for-index="indOne">
+            <view class="displayFlex">
+              <view class="right70">
+                <span wx:if="{{ielem.content.length <= 15}}">{{ielem.contentD}}</span>
+                <span wx:if="{{ielem.content.length > 15}}">
+                  <view data-txt="{{ielem.content}}" catchtap="toast1Tap">
+                    {{ielem.contentD}}...<span class="txtRed txtBold">更多</span>
+                  </view>
+                </span>
+              </view>
+              <view class="left30One txtRight">
+                <image src="{{ielem.result>item?'/images/starRed.png':'/images/starHui.png'}}" class="starIcon"  wx:for="{{5}}" bindtap="changeStarOne" data-numdata='{{ielem}}' data-num='{{index}}'></image>
+              </view>
+
+            </view>
+            <!-- 图片展示 -->
+            <view class="displayInBlock" style="width:100%;" wx:if="{{ielem.isNeedImg === 1}}" >
+              <view class="overflowHidden">
+                <view class="fileUploadDiv" wx:for="{{ielem.imgList}}" wx:for-item="kelem" wx:for-index="indTwo">
+                  <image src="{{kelem}}" class="fileUploadOne" bindtap="openImg" data-item="{{kelem}}"/>
+                  <image src="/images/delImgIcon.png" class="fileUploadDel" bindtap="delImg" data-kelem="{{kelem}}" data-indM="{{indM}}" data-indOne="{{indOne}}" data-indTwo="{{indTwo}}"/>
+                </view>
+                <view class="fileUploadTwo" data-numdata='{{ielem}}' bindtap="chooseImage">
+                  
+                  <view class="txt32">+</view>
+                  <view>上传照片</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="titleOne">
+      <span class="titOne">
+        其他问题及情况
+      </span>
+    </view>
+    <view>
+      <view class='{{rimCondition?"itemNo":"item"}}'>
+        <view class='left'>
+          <view class="left30One">
+            周边市场情况
+          </view>
+          <view class="right70One txtRight" bindtap="modalTapTwo" data-txt="rimCondition" data-name="周边市场情况" >
+            <span wx:if="{{!rimCondition}}">请编辑</span>
+            <image src='/images/rightA.png' class="imgOne"></image>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{rimCondition}}" class="item" bindtap="modalTapTwo" data-txt="rimCondition" data-name="周边市场情况" >
+        {{rimCondition}}
+      </view>
+      <view class='{{trainContent?"itemNo":"item"}}'>
+        <view class='left'>
+          <view class="left30One">
+            培训内容
+          </view>
+          <view class="right70One txtRight" bindtap="modalTapTwo" data-txt="trainContent" data-name="培训内容" >
+            <span wx:if="{{!trainContent}}">请编辑</span>
+            <image src='/images/rightA.png' class="imgOne"></image>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{trainContent}}" class="item" bindtap="modalTapTwo" data-txt="trainContent" data-name="培训内容" >
+        {{trainContent}}
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <view class="left30One" style="width:50%">
+            参与培训人员数量
+          </view>
+          <view class="right70One txtRight" style="width:50%">
+            <input class="weui-input" type="number" maxlength="5" placeholder="培训人员数量" data-txt="trainNum" data-name="参与培训人员数量"  bindinput="changeInput"/>
+          </view>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <view class="left30One">
+            店铺流量
+          </view>
+          <view class="right70One txtRight">
+            <input class="weui-input" type="number" maxlength="5"  placeholder="请输入"  data-txt="storeFlux" data-name="店铺流量" bindinput="changeInput" />
+          </view>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <view class="left30One" style="width:50%">
+            主要消费年龄段
+          </view>
+          <view class="right70One txtRight" style="width:50%">
+            <input class="weui-input" placeholder="请输入" data-txt="ageParagraph" data-name="主要消费年龄段"  bindinput="changeInput"/>
+          </view>
+        </view>
+      </view> 
+      <view class='{{marketing?"itemNo":"item"}}'>
+        <view class='left'>
+          <view class="left30One">
+            营销活动内容
+          </view>
+          <view class="right70One txtRight" bindtap="modalTapTwo" data-txt="marketing" data-name="营销活动内容" bindinput="changeInput" >
+            <span wx:if="{{!marketing}}">请编辑</span>
+            <image src='/images/rightA.png' class="imgOne"></image>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{marketing}}" class="item" bindtap="modalTapTwo" data-txt="marketing" data-name="营销活动内容" bindinput="changeInput">
+        {{marketing}}
+      </view>
+      <view class='item'>
+        <view class='left'>
+          <view class="left30One">
+            产出金额
+          </view>
+          <view class="right70One txtRight">
+            <input type="digit" class="weui-input" maxlength="7" placeholder="请输入" data-txt="outputMoney" data-name="产出金额"  bindinput="changeInput"/>
+          </view>
+        </view>
+      </view> 
+      <view class='{{needSupport?"itemNo":"item"}}'>
+        <view class='left'>
+          <view class="left30One">
+            店铺支持
+          </view>
+          <view class="right70One txtRight" bindtap="modalTapTwo" data-txt="needSupport" data-name="店铺支持">
+            <span wx:if="{{!needSupport}}">请编辑</span>
+            <image src='/images/rightA.png' class="imgOne"></image>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{needSupport}}" class="item" bindtap="modalTapTwo" data-txt="needSupport" data-name="店铺支持">
+        {{needSupport}}
+      </view>
+      <view class='{{liftSuggest?"itemNo":"item"}}'>
+        <view class='left'>
+          <view class="left30One">
+            提升建议
+          </view>
+          <view class="right70One txtRight" bindtap="modalTapTwo" data-txt="liftSuggest" data-name="提升建议" >
+            <span wx:if="{{!liftSuggest}}">请编辑</span>
+            <image src='/images/rightA.png' class="imgOne"></image>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{liftSuggest}}" class="item" bindtap="modalTapTwo" data-txt="liftSuggest" data-name="提升建议">
+        {{liftSuggest}}
+      </view>
+      <view style="height:160rpx;"></view>
+    </view> 
+  </view>
+
+  <view wx:if="{{!shopTF}}">
+    <view class="shopReportTopOne">
+      <view class="displayFlex lineBottom">
+        <view class="left30One">主访人</view>
+        <view class="right70 txtRight">
+          {{newReportData.userName}}
+        </view>
+      </view>
+      <view class="displayFlex {{!userTwoObj.txt?'lineBottom':''}}">
+        <view class="left30One">陪同人</view>
+        <view class="right70 txtRight" bindtap="modalTap" data-txt="陪同人">
+          <span wx:if="{{!userTwoObj.txt}}">请选择陪同人员（选填）</span>
+          <image src='/images/rightA.png' class="imgOne"></image>
+        </view>
+      </view>
+      <view wx:if="{{userTwoObj.txt}}" class="itemTwo" bindtap="modalTap" data-txt="陪同人">
+        {{userTwoObj.txt}}
+      </view>
+    </view>
+    <view class="textareaDiv">
+      <textarea placeholder="请填写未到店原因" auto-focus style="height: 26em;width:100%;word-wrap: break-word;" maxlength="799" bindinput="changeInput" data-txt="noStoreCause"/>
+      <view class="txtHui txt28 txtRight">最多限制800个字</view>
+    </view>
+  </view>
+  
+  <view>
+    <button class="bottomOne" bindtap="saveProjectFun">保存报告</button>
+    <button class="bottomTwo" bindtap="submitProjectFun">提交报告</button>
+  </view>
+  <!-- 弹窗一用户 -->
+  <modal wx:if="{{hiddenmodalput}}" title="{{modalTxtOne}}" confirm-text="确认" bindcancel="cancelM" bindconfirm="confirmM">
+    <view class="modeTwo">
+      <view class="userDivOne lineTop" data-item="item" wx:for="{{userList}}" data-ind="{{index}}" bindtap="checkUserList">
+        <span class="{{item.checked?'native':''}}">{{item.txt}}</span>
+        <span class="yesIconOne" wx:if="{{item.checked}}"><image src="/images/yesIcon.png" class="yesIcon"></image></span>
+      </view>
+    </view>
+   </modal>
+  
+  <!-- 弹窗一内容 -->
+  <!-- <modal wx:if="{{modalTFTwo}}" title="{{modalTxtTwo}}" confirm-text="确认" bindcancel="cancelMTwo" bindconfirm="confirmMTwo">
+    <textarea placeholder="{{modelInputPhol}}" auto-focus style="height: 15em" maxlength="799"/>
+    <view class="txtHui txt28 txtRight">最多限制800个字</view>
+  </modal> -->
+       <!-- 弹窗一时间选择 -->
+    <modal wx:if="{{modalTFDate}}" title="选择巡店时间" confirm-text="确认" bindcancel="cancelMOne" bindconfirm="confirmMCustOne">
+      <view class="displayFlex">
+        <picker mode="date" value="{{storeStartTime}}" data-dateTxt="storeStartTime"  bindchange="bindDateChange" style="width:200rpx;">
+          <view>{{storeStartTime || "开始时间"}}</view>
+        </picker>
+              至
+        <picker mode="date" value="{{storeEndTime}}" data-dateTxt="storeEndTime" bindchange="bindDateChange" style="width:200rpx;margin-left:20rpx">
+          <view>{{storeEndTime || "结束时间"}}</view>
+        </picker>
+      </view>
+    </modal>
+    <!-- 弹窗一填写报告 -->
+  <modal wx:if="{{modalTFTwo}}" title="{{modalTxtThreeObj.name}}" confirm-text="确认" bindcancel="cancelMTwo" bindconfirm="confirmMTwo">
+    <textarea placeholder="请输入{{modalTxtThreeObj.name}}" auto-focus style="height: 15em;width:100%;word-wrap: break-word;" maxlength="799" value="{{modalTxtThreeObj.value}}" bindinput="changeInput"/>
+    <view class="txtHui txt28 txtRight">最多限制800个字</view>
+  </modal>
+      <!-- 弹窗一用户 -->
+  <modal wx:if="{{userModalTFOne}}" title="{{modalTxtOne}}" confirm-text="确认" bindcancel="cancelM" bindconfirm="confirmMFour">
+    <view class="modeTwo">
+      <view class="userDivOne lineTop" data-item="item" wx:for="{{userList}}" data-ind="{{index}}" bindtap="checkUserList">
+        <span class="{{item.checked?'native':''}}">{{item.concat}}</span>
+        <span class="yesIconOne" wx:if="{{item.checked}}"><image src="/images/yesIcon.png" class="yesIcon"></image></span>
+      </view>
+    </view>
+   </modal>
+  <!-- 弹窗一客户 -->
+  <modal wx:if="{{userModalTF}}" title="请选择客户" confirm-text="确认" bindcancel="cancelMuser" bindconfirm="confirmMuser">
+    <view class="modeTwo">
+      <input class="weui-input" maxlength="99" placeholder="客户名称、编码、所属区域" bindinput="search" value="{{userObj.txt}}"/>
+      <view class="userDivOne lineTop displayFlex" data-item="item">
+        <span class="{{item.checked?'native':''}} width400 txtBlack txtBold">客户名称</span>
+        <span class="{{item.checked?'native':''}} width150 txtBlack txtBold">客户编码</span>
+        <span class="{{item.checked?'native':''}} width150 txtBlack txtBold">所属区域</span>
+      </view>
+      <scroll-view scroll-y="true" style="height: 600rpx;" bindscrolltolower="lower">
+        <view class="userDivOne lineTop displayFlex" data-item="item" wx:for="{{custList}}" data-ind="{{index}}" bindtap="checkUserList" wx:key="item.companyId">
+                <span class="width50"><image src="{{item.checked?'/images/checkEd.png':'/images/checkNo.png'}}" class="checkEd"></image></span>
+
+          <span class="{{item.checked?'native':''}} width400">{{item.companyName.length > 9 ? item.companyNameS:item.companyName}}</span>
+          <span class="{{item.checked?'native':''}} width150">{{item.companyId}}</span>
+          <span class="{{item.checked?'native':''}} width150">{{item.area.length > 3 ? item.areaS:item.area}}</span>
+        </view>
+      </scroll-view>
+      <view class="txtCenter" wx:if="{{custLoadTF}}">客户数据正在加载中...</view>
+    </view>
+   </modal>
+          <!-- 弹窗一图片预览 -->
+  <modal wx:if="{{imgModalTF}}" title="图片预览" confirm-text="确认" bindcancel="cancelM" bindconfirm="confirmImg">
+    <view class="modeTwo">
+      <image src="{{imgModalUrl}}"/>
+    </view>
+   </modal>
+  <!-- 弹窗一问题是否 -->
+  <modal wx:if="{{promModalTF}}" title="请选择{{promSTxt}}" confirm-text="确定选择" bindcancel="cancelMprom" bindconfirm="confirmProm">
+    <view class="modeTwo">
+      <view class="displayFlex lineBottom" wx:for="{{promList}}" wx:for-index="indOne" wx:for-item="ielem">
+        <view class="right60">
+          <span wx:if="{{ielem.content.length <= 15}}">{{ielem.contentD}}</span>
+          <span wx:if="{{ielem.content.length > 15}}">
+            <view data-txt="{{ielem.content}}">
+              {{ielem.contentD}}...<span class="txtRed txtBold">更多</span>
+            </view>
+          </span>
+        </view>
+        <view class="left40One txtRight">
+          <!-- <switch checked="{{ielem.checked}}" data-numdata='{{ielem}}' data-ind="{{indOne}}" bindchange="changeProM" color="#9e0029"/> -->
+          <image src="{{ielem.result>item?'/images/starRed.png':'/images/starHui.png'}}" class="starIcon"  wx:for="{{5}}" bindtap="changeStarTwo" data-numdata='{{ielem}}' data-num='{{indOne}}' wx:for-index="indOne"></image>
+        </view>
+      </view>
+    </view>
+   </modal>
+
+</view>

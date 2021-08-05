@@ -1,0 +1,69 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="巡店报告"></navigaBar>
+  <view class="titleOne">
+    <span class="titOne">
+      {{reportData.planNum}}
+    </span>
+    <span class="txtYellow floatRight">
+      <span wx:if="{{reportData.backStatus == 0}}">待回复</span>
+      <span wx:if="{{reportData.backStatus == 1}}" class="txtBlack">已回复</span>
+    </span>
+  </view>
+
+  <!-- 内容 -->
+  <view class="main">
+
+      <!-- 待反馈 -->
+      <view>
+        <view class="cardWrap">
+          <view class="displayFlex">
+            <view class="left30">计划类型</view>
+            <view class="right70">
+              <span wx:if="{{reportData.type == 0}}">安排巡店</span>
+              <span wx:if="{{reportData.type == 1}}">申请巡店</span>
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30">主访人</view>
+            <view class="right70">
+              {{reportData.planUserName}}
+            </view>
+          </view>
+          <view class="displayFlex">
+            <view class="left30">陪同人</view>
+            <view class="right70">
+              {{reportData.escortUserNamae}}
+            </view>
+          </view>
+          <view class="displayFlex lineHeight34">
+            <view class="left30">巡店内容</view>
+            <view class="right70" style="line-height:90rpx;word-wrap:break-word ;">
+              <view class="contentDiv" wx:if="{{reportData.content.length > 51}}">
+                {{contentTF?reportData.contentD:reportData.content}}
+                <view class="{{contentTF?'contentDivOne':''}}" bindtap="contentTFfun">
+                  <view class="txtRed txtCenter">{{contentTF?'展开更多':'收起'}}</view>
+                </view>
+              </view>
+              <view wx:else>
+                {{reportData.content}}
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view>
+          <view class="shopDisOne">
+            <view class="dispDiv" data-txt="IN" bindtap="changeStore"><span class="{{storeInOut==='IN'?'native':''}}">计划内</span></view>
+            <view class="dispDiv" data-txt="OUT" bindtap="changeStore"><span class="{{storeInOut==='OUT'?'native':''}}">计划外</span></view>
+          </view>
+          <shopReplyM wx:if="{{storeListNew.length > 0}}"  wx:for="{{storeListNew}}" data-item="item" wx:key="item.planId"  shopData="{{item}}"></shopReplyM>
+          <view wx:if="{{storeListNew.length === 0}}" class="txtYellow txt28 " style="background:#fff; padding:20rpx;">该类计划暂无店铺计划！</view>
+          <view style="height:180rpx"></view>
+          <!-- <view wx:if="{{!storeListNew || storeListNew.length === 0}}" class="txtCenter" >
+            <image src="../../images/noOrderDisp.png" style="width:570rpx;height:570rpx;"></image>
+          </view> -->
+        </view>
+      </view>
+  </view>
+
+</view>

@@ -1,0 +1,31 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="计划申请"></navigaBar>
+  <!-- 内容 -->
+  <view class="main">
+      <!-- 待反馈 -->
+      <view>
+        <patrolShopCard bind:goFeedback="goFeedback"></patrolShopCard>
+        <patrolShopCard></patrolShopCard>
+        <view class="iconBigRed">
+          <image src="../../images/addIcon.png" style="width:40rpx;height:40rpx;"></image>
+        </view>
+      </view>
+      <patrolShopAssess modalShow="{{modalShow}}" animationData="{{animationData}}"></patrolShopAssess>
+      
+      <!-- 待回复 -->
+      <!-- <view>
+          <patrolShopCard></patrolShopCard>
+          <patrolShopFeedback></patrolShopFeedback>
+          <patrolShopReply></patrolShopReply>
+      </view> -->
+
+      <!-- 已回复 -->
+
+      <!-- <view>
+          <patrolShopCard></patrolShopCard>
+          <patrolShopFeedback></patrolShopFeedback>
+          <patrolShopReply></patrolShopReply>
+      </view> -->
+  </view>
+
+</view>

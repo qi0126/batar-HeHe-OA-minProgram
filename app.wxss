@@ -1,0 +1,342 @@
+/**app.wxss**/
+@import "/lib/weui.wxss";
+@import "./svg/iconfont.wxss";
+
+.container {
+  height: 100%;
+} 
+image{
+  width: 100%;
+}
+
+.img28{
+  width:28rpx;
+  height:28rpx;
+  margin-right:10rpx;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.imgOne{
+  width:14rpx;
+  height: 29rpx;
+  margin:0 16rpx;
+  vertical-align:middle;
+}
+
+.txt12 {
+    font-size: 12rpx;
+    font-weight:bold;
+}
+
+.txt14 {
+    font-size: 14rpx;
+    font-weight:bold;
+}
+
+.txt16 {
+    font-size: 16rpx;
+}
+
+.txt18 {
+    font-size: 18rpx;
+    font-weight:bold;
+}
+.txt24 {
+    font-size: 24rpx;
+    font-weight:bold;
+}
+.txt28 {
+    font-size: 28rpx;
+    font-weight:bold;
+}
+.txt32 {
+    font-size: 32rpx;
+    font-weight:bold;
+}
+.txt36{
+  font-size:36rpx;
+  font-weight:bold;
+}
+.txtLeft {
+    text-align: left
+}
+
+.txtRight {
+    text-align: right;
+}
+
+.txtCenter{
+  text-align: center
+}
+.txtBold {
+    font-weight: bold
+}
+.right20{
+    margin-right:20rpx;
+}
+.right100{
+    margin-right:100rpx;
+}
+.floatRight {
+    float: right
+}
+
+.floatLeft {
+    float: left;
+}
+
+.txtYellow {
+    color: #F29924
+}
+
+.txtOrange {
+    color: #F26D0F
+}
+.txtRed {
+    color: #9e0029
+}
+
+.txtLogo{
+    color:#9e0029;
+}
+
+
+.txtHui {
+    color: #8A9199
+}
+
+.txtBlack {
+    color: #232426
+}
+
+.lineHeight34 {
+    line-height: 34rpx;
+}
+.lineHeight60 {
+    line-height: 60rpx;
+}
+.width75 {
+    width: 75rpx
+}
+
+.width70 {
+    width: 70rpx
+}
+
+.width80 {
+    width: 80rpx
+}
+.width90F {
+  width: 90%;
+  margin:0 auto;
+
+}
+.width90 {
+    width: 90rpx;
+}
+
+.width100 {
+    width: 100rpx;
+}
+
+.width110 {
+    width: 110rpx
+}
+.width130 {
+    width: 130rpx
+}
+
+.width160 {
+    width: 160rpx;
+    margin:5rpx 10rpx;
+}
+.width170 {
+    width: 170rpx
+}
+.width240 {
+    width: 240rpx
+}
+.top10 {
+    padding: 10rpx 0;
+}
+
+.top20 {
+    padding: 20rpx 0;
+}
+.mtop50 {
+    margin-top:50rpx;
+}
+.mtop20 {
+    margin-top:20rpx;
+}
+.mtop64 {
+    margin-top:64rpx;
+}
+.mtop80 {
+    margin-top:80rpx;
+}
+.mtop100 {
+    margin-top:100rpx;
+}
+.mtop168 {
+    margin-top:168rpx;
+}
+.left10{
+    margin-left:10rpx;
+}
+
+.cpointer{
+    cursor:pointer
+}
+.hr {
+    border-top: 16rpx solid #f4f4f4;
+    height: 20rpx;
+    margin: 10rpx -20rpx;
+}
+.displayFlex{
+  display:flex;
+}
+.left30{
+  width:30%;
+  color:#808080;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.right70{
+  width:70%;
+  color:#242526;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.right60{
+  width:60%;
+  color:#242526;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.left40One{
+  width:40%;
+  color:#242526;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.left30One{
+  width:30%;
+  color:#242526;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.right70One{
+  width:70%;
+  color:#808080;
+  font-size:28rpx;
+  min-height:87rpx;
+  line-height:87rpx;
+  font-weight:bold;
+}
+.right70One input{
+  margin-top:10rpx;
+}
+.pRight20{
+  padding-right:20rpx
+}
+.lineTop{
+  border-top:1rpx solid #E1E4E6;  
+}
+.lineBottom{
+  border-bottom:1rpx solid #E1E4E6;  
+}
+.cardWrap{
+  background: #fff;
+  padding: 25rpx 14rpx 29rpx 24rpx;
+  box-shadow:0px 1rpx 14rpx 0px rgba(0,22,48,0.05);
+  border-radius:8rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  margin-bottom: 24rpx;
+}
+button{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.borderRadius40{
+  border-radius:40px;
+}
+.bRed{
+  background: #BF1D47;
+  color:#fff;
+}
+.lineRightHui{
+  border-right:#EDEFF2 1rpx solid;
+}
+.lineLeftHui{
+  border-left:#EDEFF2 1rpx solid;
+}
+.lineRightRed{
+  border-right:#BF1D47 1rpx solid;
+}
+.lineLeftRed{
+  border-left:#BF1D47 1rpx solid;
+}
+
+
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
+.my_order{
+  width:14rpx;
+  height:28rpx;
+}
+.starIcon{
+  width:36rpx;
+  height:34rpx;
+  margin:0 3rpx;
+}
+.yesIcon{
+  width:32rpx;
+  height:20rpx;
+}
+.overflowHidden{
+  overflow: hidden;
+}
+.displayInBlock{
+  display:inline-block;
+}
+
+.checkEd{
+  width:28rpx;
+  height:28rpx;
+}
+
+.contentDiv{
+  position: relative;
+  line-height: 40rpx;
+  margin-top: 25rpx;
+}
+.contentDivOne{
+  position: absolute;
+  bottom:0;
+  height:125rpx;
+  background:linear-gradient(180deg,rgba(255,255,255,0.84) 0%,rgba(255,255,255,1) 100%);
+  opacity:1;
+  width:100%;
+  text-align: center;
+}
+.contentDivOne view{
+  position: absolute;
+  width:100%;
+  bottom:26rpx;
+}

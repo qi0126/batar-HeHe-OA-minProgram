@@ -1,0 +1,34 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="管理系统"></navigaBar>
+  <view class="nav">
+      <view class="navLi active">待反馈</view>
+      <view class="navLi">待回复</view>
+      <view class="navLi">已回复</view>
+  </view>
+
+  <!-- 内容 -->
+  <view class="main">
+      <!-- 待反馈 -->
+      <view>
+        <patrolShopCard bind:goFeedback="goFeedback"></patrolShopCard>
+        <patrolShopCard></patrolShopCard>
+      </view>
+      <patrolShopAssess modalShow="{{modalShow}}" animationData="{{animationData}}"></patrolShopAssess>
+      
+      <!-- 待回复 -->
+      <!-- <view>
+          <patrolShopCard></patrolShopCard>
+          <patrolShopFeedback></patrolShopFeedback>
+          <patrolShopReply></patrolShopReply>
+      </view> -->
+
+      <!-- 已回复 -->
+
+      <!-- <view>
+          <patrolShopCard></patrolShopCard>
+          <patrolShopFeedback></patrolShopFeedback>
+          <patrolShopReply></patrolShopReply>
+      </view> -->
+  </view>
+
+</view>

@@ -1,0 +1,53 @@
+page{
+  font-weight:bold;
+  background: #fff;
+}
+.patrolShopWrap{}
+
+/* 导航 */
+.nav{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height:97rpx;
+  background:rgba(255,255,255,1);
+  border-top:1rpx solid #F2F2F2;
+  margin-bottom:16rpx;
+  text-align: center;
+  padding:0 20rpx;
+  color: #E1671D;
+  font-size:32rpx;
+}
+
+.navLi{
+  flex: 1;
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  text-align: center;
+}
+
+.active{
+  color: #E1671D;
+}
+
+
+/* 内容 */
+.main{
+  padding: 16rpx 15rpx 0rpx 11rpx;
+  height:100%;
+}
+.iconBigRed{
+  color:#fff;
+  background: #BF1D47;
+  border-radius: 50%;
+  width:100rpx;
+  height:100rpx;
+  font-size:50rpx;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  right:40rpx;
+  bottom:40rpx;
+  box-shadow: 2px 2px 8px #d8d8d8;
+}

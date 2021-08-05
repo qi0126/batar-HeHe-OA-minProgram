@@ -1,0 +1,16 @@
+<view class="patrolShopWrap">
+  <navigaBar navBarTxt="反馈回复" test="index" ></navigaBar>
+
+  <!-- 内容 -->
+  <view class="main">
+      <!-- 待反馈 -->
+      <view>
+        <shopReply catchtap="goDetail" data-elem="{{item}}"  wx:for="{{reportList}}" data-item="item" reportData="{{item}}" wx:key="{{item.id}}"></shopReply>
+      </view>
+      <view wx:if="{{!reportList || reportList.length === 0}}" class="txtCenter" >
+        <image src="../../images/noOrderDisp.png" style="width:570rpx;height:570rpx;"></image>
+      </view>
+
+  </view>
+
+</view>
